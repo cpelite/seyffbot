@@ -8,7 +8,7 @@ load_dotenv()
 TOKEN = os.getenv("DISCORD_TOKEN")
 
 #Bot-Settings
-bot = discord.Bot()
+bot = discord.bot()
 
 @bot.event
 async def on_ready():

@@ -12,10 +12,6 @@ intents = discord.Intents.default()
 intents.members = True
 bot = commands.Bot(command_prefix='$', intents=intents)
 
-#load extensions
-bot.load_extension("commands")
-bot.load_extension("gifs")
-
 #bot-version
 @bot.command()
 async def botinfo(ctx):

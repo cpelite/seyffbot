@@ -1,22 +1,23 @@
-import discord
+import nextcord
 import os
 from dotenv import load_dotenv
-from discord.ext import commands
+from nextcord.ext import commands
 
 # Token laden
 load_dotenv()
 TOKEN = os.getenv("DISCORD_TOKEN")
 
 #intents festlegen
-intents = discord.Intents.default()
+intents = nextcord.Intents.default()
 intents.members = True
 bot = commands.Bot(command_prefix='$', intents=intents)
 
 #bot-version
 @bot.command()
 async def botinfo(ctx):
-    embed=discord.Embed(title="Informationen über den Bot.")
+    embed=nextcord.Embed(title="Informationen über den Bot.")
     embed.add_field(name="Bot-Version", value="Beta 1 - Albert I.")
+    embed.add_field(name="Verwendete Python-Version", value="3.10.2")
     embed.add_field(name="Entwickler", value="Ihr kennt den verrückten doch.")
     await ctx.send(embed=embed)
 
@@ -24,7 +25,7 @@ async def botinfo(ctx):
 @bot.event
 async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandNotFound):
-        embed = discord.Embed(title="Sorry!")
+        embed = nextcord.Embed(title="Sorry!")
         embed.add_field(name="Es tut mir leid..", value = "...aber dieser Befehl existiert noch nicht.")
         await ctx.send(embed=embed)
 

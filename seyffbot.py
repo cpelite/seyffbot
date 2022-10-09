@@ -7,6 +7,9 @@ from nextcord.ext import commands
 load_dotenv()
 TOKEN = os.getenv("DISCORD_TOKEN")
 
+#Erweiterungen laden
+bot.load_extension()
+
 #intents festlegen
 intents = nextcord.Intents.default()
 intents.members = True
